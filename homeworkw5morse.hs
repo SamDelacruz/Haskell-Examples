@@ -48,9 +48,9 @@ codeSymbol '0' = dah ++ dah ++ dah ++ dah ++ dah
 codeWord :: String -> [MorseUnit]
 codeWord = foldr f z
     where   f x y = (codeSymbol x) ++ shortGap ++ y
-            z = shortGap
+            z = []
             
 codeText :: String -> [MorseUnit]
 codeText = foldr f z . words
         where   f x y = (codeWord x) ++ mediumGap ++ y
-                z = mediumGap
+                z = []

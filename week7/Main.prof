@@ -1,0 +1,67 @@
+	Fri Mar 29 17:25 2013 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -p -RTS
+
+	total time  =       50.29 secs   (50292 ticks @ 1000 us, 1 processor)
+	total alloc = 45,876,728,672 bytes  (excludes profiling overheads)
+
+COST CENTRE    MODULE  %time %alloc
+
+quickSortBy    Main     81.9   85.2
+encode         Main      4.4    6.9
+tableLookup    Main      3.8    0.0
+decode.decode' Main      2.2    1.1
+collate.(...)  Main      2.2    2.5
+main           Main      1.9    3.1
+decode         Main      1.6    0.0
+
+
+                                                               individual     inherited
+COST CENTRE          MODULE                  no.     entries  %time %alloc   %time %alloc
+
+MAIN                 MAIN                     46           0    0.0    0.0   100.0  100.0
+ main                Main                     93           0    0.0    0.0     0.0    0.0
+ CAF                 Main                     91           0    0.0    0.0   100.0  100.0
+  sample             Main                    107           1    0.0    0.0     0.0    0.0
+   sortby            Main                    109           2    0.0    0.0     0.0    0.0
+  mkHuff             Main                    103           1    0.0    0.0     0.0    0.0
+  testString         Main                     98           1    0.0    0.0     0.0    0.0
+  main               Main                     92           1    1.9    3.1   100.0  100.0
+   decompress        Main                     95        4991    0.0    0.0     3.8    1.1
+    decode           Main                     96     8850286    1.6    0.0     3.8    1.1
+     decode.decode'  Main                    131    47587779    2.2    1.1     2.2    1.1
+   compress          Main                     94        4991    0.0    0.0    94.3   95.8
+    compress.s       Main                    106        4991    0.0    0.0    84.4   87.8
+     sample          Main                    108           0    0.0    0.0    84.4   87.8
+      collate        Main                    111      214683    0.2    0.1     2.5    2.6
+       collate.ys    Main                    115      209692    0.0    0.0     0.0    0.0
+       collate.(...) Main                    113      209692    2.2    2.5     2.2    2.5
+       collate.zs    Main                    112      209692    0.0    0.0     0.0    0.0
+      quickSortBy    Main                    110    18119956   81.9   85.2    82.0   85.2
+       freq          Main                    114     2977550    0.1    0.0     0.1    0.0
+    compress.h       Main                    102        4991    0.0    0.0     1.1    0.8
+     unlabel         Main                    129      414393    0.1    0.0     0.1    0.0
+     mkHuff          Main                    104           0    0.1    0.1     1.0    0.8
+      unwrap         Main                    128        4991    0.0    0.0     0.0    0.0
+      mktip          Main                    121      209692    0.0    0.0     0.0    0.0
+      combine        Main                    116      204701    0.0    0.0     0.9    0.7
+       combine.w     Main                    124      199710    0.1    0.0     0.1    0.0
+        weight       Main                    125      399420    0.0    0.0     0.0    0.0
+       insert        Main                    117      204701    0.1    0.2     0.8    0.6
+        insert.vts   Main                    127      204701    0.0    0.0     0.0    0.0
+        insert.uts   Main                    126      204701    0.0    0.0     0.0    0.0
+        insert.p     Main                    122           0    0.0    0.0     0.0    0.0
+         weight      Main                    123      199710    0.0    0.0     0.0    0.0
+        insert.(...) Main                    118      204701    0.5    0.4     0.6    0.4
+         insert.p    Main                    119     1693050    0.1    0.0     0.1    0.0
+          weight     Main                    120     1693050    0.0    0.0     0.0    0.0
+      singleton      Main                    105      209692    0.1    0.0     0.1    0.0
+    compress.t       Main                    100        4991    0.0    0.0     0.4    0.4
+     transform       Main                    101      414393    0.0    0.0     0.4    0.4
+      hufmerge       Main                    130      818440    0.4    0.4     0.4    0.4
+    encode           Main                     97        4991    4.4    6.9     8.3    6.9
+     tableLookup     Main                     99    77756382    3.8    0.0     3.8    0.0
+ CAF                 GHC.Conc.Signal          90           0    0.0    0.0     0.0    0.0
+ CAF                 GHC.IO.Encoding          83           0    0.0    0.0     0.0    0.0
+ CAF                 GHC.IO.Encoding.Iconv    81           0    0.0    0.0     0.0    0.0
+ CAF                 GHC.IO.Handle.FD         74           0    0.0    0.0     0.0    0.0
